@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class TestaEntity {
     
     @Id
-    private String key;
+    private int key;
 
     private int val1;
 

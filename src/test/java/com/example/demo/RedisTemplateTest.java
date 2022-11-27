@@ -23,4 +23,9 @@ public class RedisTemplateTest {
         String value =  valueOperations.get(key);
         
     }
+
+    @Test
+    void testQuery() {
+        
+    }
 }
