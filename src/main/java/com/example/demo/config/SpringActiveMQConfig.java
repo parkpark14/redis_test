@@ -4,7 +4,6 @@ import javax.jms.Queue;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
-import org.apache.activemq.management.JMSConsumerStatsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -12,8 +11,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.core.JmsTemplate;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Configuration
 @EnableJms
+@Slf4j
 public class SpringActiveMQConfig {
     
     @Autowired
@@ -29,7 +31,8 @@ public class SpringActiveMQConfig {
 
     @Bean
     public ActiveMQConnectionFactory activeMQConnectionFactory() {
-        activeMQConnectionFactory.setBrokerURL(brokerUrl);
+        log.info("brokerUrl = " + brokerUrl);
+        activeMQConnectionFactory.setBrokerURL("tcp://localhost:61616");
         return activeMQConnectionFactory;
     }
 
